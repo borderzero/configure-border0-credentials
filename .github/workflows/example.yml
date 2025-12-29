@@ -1,0 +1,29 @@
+name: Example - Configure Border0 Credentials
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure Border0 Credentials
+        id: border0
+        uses: ./
+        with:
+          border0-org-subdomain: my-organization
+          border0-svc-account-name: github-actions-sa
+          border0-token-duration-seconds: 3600
+
+      - name: Verify Token Received
+        run: |
+          if [ -n "${{ steps.border0.outputs.token }}" ]; then
+            echo "Successfully obtained Border0 token"
+          else
+            echo "Failed to obtain Border0 token"
+            exit 1
+          fi

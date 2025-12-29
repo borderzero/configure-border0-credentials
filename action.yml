@@ -1,0 +1,30 @@
+name: 'Configure Border0 Credentials'
+description: 'Exchange GitHub OIDC token for Border0 credentials'
+author: 'Border0'
+branding:
+  icon: 'shield'
+  color: 'blue'
+
+inputs:
+  border0-org-subdomain:
+    description: 'Border0 organization name'
+    required: true
+  border0-svc-account-name:
+    description: 'Border0 service account name'
+    required: true
+  border0-token-duration-seconds:
+    description: 'Token duration in seconds'
+    required: false
+    default: '3600'
+  border0-api-url:
+    description: 'Border0 API base URL'
+    required: false
+    default: 'https://api.border0.com/api/v1'
+
+outputs:
+  token:
+    description: 'Border0 authentication token'
+
+runs:
+  using: 'node24'
+  main: 'dist/index.js'
