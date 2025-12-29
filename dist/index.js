@@ -25687,10 +25687,12 @@ const http = __importStar(__nccwpck_require__(4844));
 async function run() {
     try {
         // Get inputs
-        const org = core.getInput("border0-org", { required: true });
-        const svcAccount = core.getInput("border0-svc-account", { required: true });
+        const org = core.getInput("border0-org-subdomain", { required: true });
+        const svcAccount = core.getInput("border0-svc-account-name", {
+            required: true,
+        });
         const durationSeconds = parseInt(core.getInput("border0-token-duration-seconds", { required: true }), 10);
-        const apiBaseUrl = core.getInput("border0-api-base-url", {
+        const apiBaseUrl = core.getInput("border0-api-url", {
             required: true,
         });
         core.info(`Exchanging GitHub OIDC token for Border0 credentials...`);
