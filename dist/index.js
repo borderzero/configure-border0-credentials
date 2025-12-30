@@ -25706,7 +25706,7 @@ async function run() {
         }
         // Prepare request
         const client = new http.HttpClient("configure-border0-credentials");
-        const endpoint = `${apiBaseUrl}/auth/web_identity/login`;
+        const endpoint = `${apiBaseUrl}/auth/web_identity/exchange`;
         const requestBody = {
             organization_subdomain: org,
             service_account_name: svcAccount,
